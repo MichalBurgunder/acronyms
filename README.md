@@ -18,3 +18,7 @@ Comment out `check_acronyms()`, and run the file. This should create a list of a
 Next, uncomment `check_acronyms()`, and comment out `check_acronyms()`. And you're set! Whenever you have a few spare moments, run `acronyms.py`, and get going. The script will track your progress with each submitted answer, so there is no danger in losing previously submitted data. Tie it to your own repo, and you can make sure that this data is not lost. 
 
 Happy clicking!
+
+## Visualization
+
+TBD
