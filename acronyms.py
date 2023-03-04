@@ -10,10 +10,6 @@ def save_as_csv(path, tlas):
             writer.writerow([str(tla)])
     return
 
-def delete_from_source(path):
-    
-    return
-
 def write_in_output(path, line_number, res):
     data = None
     with open(f'{path}/acronyms.csv', 'r') as f:
@@ -55,6 +51,7 @@ def check_acronyms():
                 break
         write_in_output(path, offset + i, res)
         os.system('clear')
+    print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.")
     return 
 
 # one time run function
@@ -77,8 +74,5 @@ def create_acronyms():
     save_as_csv(path, final_tlas)
     return 
 
-# write_in_output("/Users/michal/Documents/playground/acronyms", 2, "lala")
 # create_acronyms()
-
-
 check_acronyms()
