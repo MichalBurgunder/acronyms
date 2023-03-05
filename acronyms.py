@@ -47,8 +47,9 @@ def check_acronyms():
         while(True):
             res = input() # 'y' or 'n'
             if res == 'y' or res == 'n':
-                print("only use 'y' or 'n' as responses")
                 break
+            else:
+                print("only use 'y' or 'n' as responses")
         write_in_output(path, offset + i, res)
         os.system('clear')
     print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.")
