@@ -27,22 +27,24 @@ def write_in_output(path, line_number, res):
 
 def get_csv_tlas(path):
     tlas = []
-    offset = 0
+    positions = []
     with open(f"{path}/acronyms.csv") as file:
         info = csv.reader(file, delimiter=',')
+        i = 0
         for row in info:
             if len(row) == 1:
                 tlas.append(row[0])
-            else:
-                offset += 1
+                positions.append(i)
+            i += 1
 
-    return tlas, offset
+    return tlas, positions
 
 def check_acronyms():
     path = "/Users/michal/Documents/playground/acronyms"
-    current_tlas, offset = get_csv_tlas(path)
+    current_tlas, positions = get_csv_tlas(path)
     
     for i in range(0, len(current_tlas)):
+        # if current_tlas[i]
         print(current_tlas[i])
         while(True):
             res = input() # 'y' or 'n'
@@ -50,7 +52,7 @@ def check_acronyms():
                 break
             else:
                 print("only use 'y' or 'n' as responses")
-        write_in_output(path, offset + i, res)
+        write_in_output(path, positions[i], res)
         os.system('clear')
     print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.")
     return 
