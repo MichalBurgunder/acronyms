@@ -17,6 +17,8 @@ def write_in_output(path, line_number, res):
         data = list(reader)
 
     line_to_modify = data[line_number]
+    if len(line_to_modify) == 2:
+        line_to_modify.pop()
     line_to_modify.append(res)
 
     # Write the modified data back to the CSV file
@@ -42,16 +44,22 @@ def get_csv_tlas(path):
 def check_acronyms():
     path = "/Users/michal/Documents/playground/acronyms"
     current_tlas, positions = get_csv_tlas(path)
-    
-    for i in range(0, len(current_tlas)):
-        # if current_tlas[i]
+    i = -1
+    res = None
+
+    while(i < len(current_tlas)):
+        i += 1
         print(current_tlas[i])
         while(True):
-            res = input() # 'y' or 'n'
-            if res == 'y' or res == 'n':
+            res = input() # 'y', 'n' or 'b'
+            if res == 'y' or res == 'n' or res == 'b':
                 break
             else:
-                print("only use 'y' or 'n' as responses")
+                print("only use 'y', 'n' or 'b' as responses")
+        
+        if res == 'b':
+            i -= 2
+            continue
         write_in_output(path, positions[i], res)
         os.system('clear')
     print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.")
