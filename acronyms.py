@@ -47,7 +47,11 @@ def check_acronyms():
     i = -1
     res = None
 
-    while(i < len(current_tlas)):
+    if (i >= len(current_tlas)-1):
+        print("Data has already been filled out. Exiting...")
+        return
+    
+    while(i < len(current_tlas)-1):
         i += 1
         print(current_tlas[i])
         while(True):
@@ -66,7 +70,7 @@ def check_acronyms():
             continue
         write_in_output(path, positions[i], res)
         os.system('clear')
-    print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.")
+    print("CONGRATULATIONS!! You've submitted data for all TLAs.\nSee the visualization section in the README to visualize your data.\nExiting program...")
     return 
 
 # one time run function
