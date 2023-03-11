@@ -57,8 +57,13 @@ def check_acronyms():
             else:
                 print("only use 'y', 'n' or 'b' as responses")
         
+        print(i)
         if res == 'b':
-            i -= 2
+            if i == 0:
+                i -= 1
+            else:
+                i -= 2
+            os.system('clear')
             continue
         write_in_output(path, positions[i], res)
         os.system('clear')
