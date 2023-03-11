@@ -57,7 +57,6 @@ def check_acronyms():
             else:
                 print("only use 'y', 'n' or 'b' as responses")
         
-        print(i)
         if res == 'b':
             if i == 0:
                 i -= 1
